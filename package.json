@@ -1,0 +1,23 @@
+{
+  "name": "base64-to-image",
+  "version": "1.0.0",
+  "description": "base64 to image converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "keywords": [
+    "base64",
+    "base64",
+    "to",
+    "image",
+    "converter",
+    "base64toimage"
+  ],
+  "author": "helen",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "should": "^8.3.1"
+  }
+}

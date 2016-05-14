@@ -25,7 +25,7 @@ var optionalObj = {'fileName': 'imageFileName', 'type':'png'};
  - `path` (string) - a valid path where you want to save the image.
  - `optionalObj` (object) - have two properties fileName and type
  	- fileName holds image file name. If this value is not passed the image will be saved as 'img-' + Date.now().
- 	- type hold image type e.g. ('png' or 'jpg'  and so on). If this value is not passed it will extract the image type from the base64 if present ..if not the default is 'png'
+ 	- type holds image type e.g. ('png' or 'jpg'  and so on). If this value is not passed it will extract the image type from the base64 if present ..if not the default is 'png'
 
 
 ### License  
@@ -33,4 +33,3 @@ var optionalObj = {'fileName': 'imageFileName', 'type':'png'};
 
 ### Issues  
 Report a bug in the issues.   
-
