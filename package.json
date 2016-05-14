@@ -6,12 +6,16 @@
   "scripts": {
     "test": "mocha test/test.js"
   },
+  "repository": "https://github.com/helensy/base64-to-image.git",
+   "bugs": {
+    "url": "https://github.com/helensy/base64-to-image/issues"
+  },
   "keywords": [
-    "base64",
     "base64",
     "to",
     "image",
     "converter",
+	"node",
     "base64toimage"
   ],
   "author": "helenys",
