@@ -52,15 +52,14 @@ function base64ToImage(base64Str, path, optionalObj){
  * @public
  */
 function decodeBase64Image(base64Str) {
-  var matches = base64Str.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
-  var image = {};
+ 	var matches = base64Str.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+	var image = {};
+	if (!matches || matches.length !== 3) {
+		throw new Error('Invalid base64 string');
+  	}
 
-  if (!matches || matches.length !== 3) {
-     throw new Error('Invalid base64 string');
-  }
-
-  image.type = matches[1];
-  image.data = new Buffer(matches[2], 'base64');
+  	image.type = matches[1];
+  	image.data = new Buffer(matches[2], 'base64');
 
   return image;
 }
