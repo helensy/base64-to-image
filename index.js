@@ -10,7 +10,7 @@ var fs = require('fs');
  * Module exports.
  * @public
  */
-exports.base64ToImage = base64ToImage;
+module.exports = base64ToImage;
 
 /**
  * Change base64Str to image and write image file with 
@@ -30,6 +30,7 @@ function base64ToImage(base64Str, path, optionalObj){
 	var imageType = optionalObj.type || imageBuffer.type || 'png';
 	var fileName = optionalObj.fileName || 'img-' +  Date.now();
 	var abs;
+	var fileName = '' + fileName;
 	
 	if(fileName.indexOf('.') === -1){
 		imageType = imageType.replace('image/','');
