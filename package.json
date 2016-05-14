@@ -14,7 +14,7 @@
     "converter",
     "base64toimage"
   ],
-  "author": "helen",
+  "author": "helenys",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^2.4.5",

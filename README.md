@@ -29,7 +29,7 @@ var optionalObj = {'fileName': 'imageFileName', 'type':'png'};
 
 
 ### License  
-  
+  Anyone can contribute and use it 
 
 ### Issues  
 Report a bug in the issues.   
