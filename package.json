@@ -1,6 +1,6 @@
 {
   "name": "base64-to-image",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "base64 to image converter",
   "main": "index.js",
   "scripts": {

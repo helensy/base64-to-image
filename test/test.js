@@ -1,4 +1,4 @@
-var base64ToImage = require('../index').base64ToImage;
+var base64ToImage = require('../index');
 var should = require('should');
 var fs = require('fs');
 
@@ -43,13 +43,15 @@ describe('Base64 to image', function () {
 	  var optionalObj = {'fileName':'image_test'};
 	  var fileSaved = false;
 	  
-	  base64ToImage(base64Str, path, optionalObj);
+	  var imageInfo = base64ToImage(base64Str, path, optionalObj);
 	  
 	  if (fs.existsSync('test/image_test.png')) {
          fileSaved = true;
 	  }  
 
-      fileSaved.should.true;	  
+      fileSaved.should.true;
+	  imageInfo.should.have.property('imageType', 'png');
+	  imageInfo.should.have.property('fileName', 'image_test.png');	  
 	  
 	  done();
     });
