@@ -5,6 +5,7 @@
  * @private
  */
 var fs = require('fs');
+var uuid = require('uuid/v4');
 
 /**
  * Module exports.
@@ -21,34 +22,37 @@ module.exports = base64ToImage;
  * @public
  */
 function base64ToImage(base64Str, path, optionalObj) {
-
-    if (!base64Str || !path) {
-        throw new Error('Missing mandatory arguments base64 string and/or path string');
-    }
-
-    var optionalObj = optionalObj || {};
-    var imageBuffer = decodeBase64Image(base64Str);
-    var imageType = optionalObj.type || imageBuffer.type || 'png';
-    var fileName = optionalObj.fileName || 'img-' + Date.now();
-    var abs;
-    var fileName = '' + fileName;
-
-    if (fileName.indexOf('.') === -1) {
-        imageType = imageType.replace('image/', '');
-        fileName = fileName + '.' + imageType;
-    }
-
-    abs = path + fileName;
-    fs.writeFile(abs, imageBuffer.data, 'base64', function(err) {
-        if (err && optionalObj.debug) {
-            console.log("File image write error", err);
+    return new Promise((resolve, reject) => {
+        if (!base64Str || !path) {
+            reject(new Error('Missing mandatory arguments base64 string and/or path string'));
+            return;
         }
-
+        var optionalObject = optionalObj || {};
+        var imageBuffer = decodeBase64Image(base64Str);
+        var imageType = optionalObject.type || imageBuffer.type || 'png';
+        var fileName = optionalObject.fileName || 'img-' + Date.now() + 'uuid-' + uuid();
+        var abs;
+        var fileName = '' + fileName;
+    
+        if (fileName.indexOf('.') === -1) {
+            imageType = imageType.replace('image/', '');
+            fileName = fileName + '.' + imageType;
+        }
+    
+        abs = path + fileName;
+        fs.writeFile(abs, imageBuffer.data, 'base64', function(err) {
+            if (err && optionalObject.debug) {
+                console.log("File image write error", err);
+                reject(err);
+                return;
+            }
+    
+            resolve({
+                'imageType': imageType,
+                'fileName': fileName
+            });
+        });
     });
-    return {
-        'imageType': imageType,
-        'fileName': fileName
-    };
 };
 
 /**
