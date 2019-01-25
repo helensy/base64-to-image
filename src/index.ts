@@ -1,5 +1,6 @@
 // Module dependencies.
 import fs from 'fs';
+import path from 'path';
 
 interface OptionsInterface {
   fileName:string;
@@ -20,9 +21,9 @@ const defaultOptions = () => {
 Change base64Str to image and write image file with
 the specified file name to the specified file path.
 */
-const base64ToImage = (base64Str:string, path:string, optionsObj?:OptionsInterface) => {
+const base64ToImage = (base64Str:string, filePath:string, optionsObj?:OptionsInterface) => {
 
-  if (!base64Str || !path) {
+  if (!base64Str || !filePath) {
     throw new Error('Missing mandatory arguments base64 string and/or path string');
   }
 
@@ -41,10 +42,11 @@ const base64ToImage = (base64Str:string, path:string, optionsObj?:OptionsInterfa
     finalFileName = `${finalFileName}.${finalImageType}`;
   }
 
-  const abs = path + finalFileName;
+  const abs = path.join(filePath, finalFileName);
+
   fs.writeFile(abs, imageBuffer.data, 'base64', (err:any) => {
     if (err && options.debug) {
-      console.log('File image write error', err);
+      console.error('File image write error', err);
     }
   });
 
