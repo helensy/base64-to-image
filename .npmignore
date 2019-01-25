@@ -1,0 +1,7 @@
+# folders
+node_modules
+src
+
+# files
+tsconfig.json
+tslint.json
