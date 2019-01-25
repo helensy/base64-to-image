@@ -2,26 +2,33 @@
   "name": "base64-to-image",
   "version": "1.0.1",
   "description": "base64 to image converter",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha test/test.js",
+    "lint": "echo 'Start Lint' && tslint --project tsconfig.json --config tslint.json src/**/*.ts --fix && echo 'End Lint'",
+    "tscompile": "echo '\\nStart Compilation' && tsc --declaration && echo 'End Compilation'",
+    "compile": "npm run lint; npm run tscompile"
   },
-  "repository": "https://github.com/helensy/base64-to-image.git",
-   "bugs": {
-    "url": "https://github.com/helensy/base64-to-image/issues"
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "mocha": "^5.2.0",
+    "should": "^8.3.1",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.2.4"
   },
   "keywords": [
     "base64",
     "to",
     "image",
     "converter",
-	"node",
+    "node",
     "base64toimage"
   ],
   "author": "helenys",
-  "license": "ISC",
-  "devDependencies": {
-    "mocha": "^2.4.5",
-    "should": "^8.3.1"
-  }
+  "repository": "https://github.com/helensy/base64-to-image.git",
+  "bugs": {
+    "url": "https://github.com/helensy/base64-to-image/issues"
+  },
+  "license": "ISC"
 }
