@@ -28,7 +28,7 @@ const base64ToImage = (base64Str:string, path:string, optionsObj?:OptionsInterfa
 
   const imageBuffer = decodeBase64Image(base64Str);
 
-  const options = { ...optionsObj, ...defaultOptions() };
+  const options = { ...defaultOptions(), ...optionsObj };
 
   const fileName = options.fileName;
   const imageType = options.type || imageBuffer.type;
@@ -41,7 +41,7 @@ const base64ToImage = (base64Str:string, path:string, optionsObj?:OptionsInterfa
     finalFileName = `${finalFileName}.${finalImageType}`;
   }
 
-  const abs = path + fileName;
+  const abs = path + finalFileName;
   fs.writeFile(abs, imageBuffer.data, 'base64', (err:any) => {
     if (err && options.debug) {
       console.log('File image write error', err);
@@ -67,4 +67,4 @@ const decodeBase64Image = (base64Str:string) => {
   };
 };
 
-export default base64ToImage;
+export = base64ToImage;
