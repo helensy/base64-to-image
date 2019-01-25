@@ -10,7 +10,7 @@ npm install base64-to-image --save
 
 To run test  
 ```sh
-npm test
+npm run test
 ```
 
 ### Usage  
