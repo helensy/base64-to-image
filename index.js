@@ -5,6 +5,7 @@
  * @private
  */
 var fs = require('fs');
+var path = require('path');
 
 /**
  * Module exports.
@@ -38,7 +39,7 @@ function base64ToImage(base64Str, path, optionalObj) {
         fileName = fileName + '.' + imageType;
     }
 
-    abs = path + fileName;
+    abs = path.join(path, fileName);
     fs.writeFile(abs, imageBuffer.data, 'base64', function(err) {
         if (err && optionalObj.debug) {
             console.log("File image write error", err);
