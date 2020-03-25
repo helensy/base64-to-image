@@ -38,6 +38,10 @@ function base64ToImage(base64Str, path, optionalObj) {
         fileName = fileName + '.' + imageType;
     }
 
+    if (path == ".") {
+        path = "./"
+    }
+
     abs = path + fileName;
     fs.writeFile(abs, imageBuffer.data, 'base64', function(err) {
         if (err && optionalObj.debug) {
