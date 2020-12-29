@@ -1,29 +1,42 @@
-#Description
+# Description
 Decode base64 to image and save the image to disk.
 
-#base64-to-image
+# base64-to-image
 
 To install  
-`npm install base64-to-image --save`  
+```sh
+npm install base64-to-image --save
+```
 
-To run test  
-`npm test`  
+To run test
+```sh
+npm test
+``` 
 
 ### Usage  
 
-Require the library in your .js file  
-`var base64ToImage = require('base64-to-image');`  
+Require the library in your .js file
+```javascript
+const base64ToImage = require('base64-to-image');
+``` 
+
+---
 
 #### Change base64 string to image and save it to disk  
-```
-var base64Str = "Add valid base64 str";
-var path ='put a valid path where you want to save the image';
-var optionalObj = {'fileName': 'imageFileName', 'type':'png'};
+```javascript
+const base64ToImage = require('base64-to-image');
 
-	base64ToImage(base64Str,path,optionalObj); 
+const base64Str = 'Add valid base64 str';
+const path = 'put a valid path where you want to save the image';
+
+const optionalObj = {
+  'fileName': 'imageFileName',
+  'type': 'png'
+};
+
+const info =	base64ToImage(base64Str,path,optionalObj);
 	
-Note base64ToImage function returns imageInfo which is an object with imageType and fileName.
-var imageInfo = base64ToImage(base64Str,path,optionalObj); 
+// Note: base64ToImage function returns imageInfo which is an object with imageType and fileName
 ```
 
 ##### Parameters  
@@ -39,4 +52,4 @@ var imageInfo = base64ToImage(base64Str,path,optionalObj);
   Anyone can contribute and use it 
 
 ### Issues  
-Report a bug in the issues.   
+Report a bug in the issues.
